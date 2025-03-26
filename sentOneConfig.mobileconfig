@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <!-- Payload for Full Disk Access (PPPC - Privacy Preferences Policy Control) -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.TCC.configuration-profile-policy</string>
+            <key>PayloadIdentifier</key>
+            <string>com.sentinelone.tcc.fulldiskaccess</string>
+            <key>PayloadUUID</key>
+            <string>A1B2C3D4-E5F6-7890-A1B2-C3D4E5F67890</string> 
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadDisplayName</key>
+            <string>SentinelOne Full Disk Access</string>
+            <key>PayloadDescription</key>
+            <string>Grants Full Disk Access to SentinelOne processes</string>
+            <key>Services</key>
+            <dict>
+                <key>SystemPolicyAllFiles</key>
+                <array>
+                    <!-- sentineld -->
+                    <dict>
+                        <key>Identifier</key>
+                        <string>com.sentinelone.sentineld</string>
+                        <key>IdentifierType</key>
+                        <string>bundleID</string>
+                        <key>CodeRequirement</key>
+                        <string>anchor apple generic and identifier "com.sentinelone.sentineld" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4AYE5J54KN")</string>
+                        <key>Allowed</key>
+                        <true/>
+                    </dict>
+                    <!-- sentineld_helper -->
+                    <dict>
+                        <key>Identifier</key>
+                        <string>com.sentinelone.sentineld-helper</string>
+                        <key>IdentifierType</key>
+                        <string>bundleID</string>
+                        <key>CodeRequirement</key>
+                        <string>anchor apple generic and identifier "com.sentinelone.sentineld-helper" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4AYE5J54KN")</string>
+                        <key>Allowed</key>
+                        <true/>
+                    </dict>
+                    <!-- sentineld_shell -->
+                    <dict>
+                        <key>Identifier</key>
+                        <string>com.sentinelone.sentineld-shell</string>
+                        <key>IdentifierType</key>
+                        <string>bundleID</string>
+                        <key>CodeRequirement</key>
+                        <string>anchor apple generic and identifier "com.sentinelone.sentineld-shell" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4AYE5J54KN")</string>
+                        <key>Allowed</key>
+                        <true/>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+
+        <!-- Payload for System Extension -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.system-extension-policy</string>
+            <key>PayloadIdentifier</key>
+            <string>com.sentinelone.systemextension</string>
+            <key>PayloadUUID</key>
+            <string>B2C3D4E5-F6A1-7890-B2C3-D4E5F6A17890</string> 
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadDisplayName</key>
+            <string>SentinelOne System Extension</string>
+            <key>PayloadDescription</key>
+            <string>Pre-authorizes the SentinelOne System Extension</string>
+            <key>AllowedSystemExtensions</key>
+            <dict>
+                <key>4AYE5J54KN</key>
+                <array>
+                    <string>com.sentinelone.sentineld</string> <!-- Updated to main agent bundle ID -->
+                </array>
+            </dict>
+            <key>AllowUserOverrides</key>
+            <false/>
+        </dict>
+
+        <!-- Payload for Network Content Filter Approval -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.webcontent-filter</string>
+            <key>PayloadIdentifier</key>
+            <string>com.sentinelone.networkcontentfilter</string>
+            <key>PayloadUUID</key>
+            <string>C3D4E5F6-A1B2-7890-C3D4-E5F6A1B27890</string> 
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadDisplayName</key>
+            <string>SentinelOne Network Content Filter</string>
+            <key>PayloadDescription</key>
+            <string>Pre-approves SentinelOne Network Content Filter to eliminate filtering prompt</string>
+            <key>FilterType</key>
+            <string>Plugin</string>
+            <key>FilterGrade</key>
+            <string>firewall</string> <!-- Specifies filter level -->
+            <key>PluginBundleID</key>
+            <string>com.sentinelone.network-monitoring</string> <!-- Corrected bundle ID -->
+            <key>FilterDataProviderBundleIdentifier</key>
+            <string>com.sentinelone.network-monitoring</string> <!-- Corrected bundle ID -->
+            <key>FilterDataProviderDesignatedRequirement</key>
+            <string>anchor apple generic and identifier "com.sentinelone.sentineld" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4AYE5J54KN")</string>
+            <key>UserDefinedName</key>
+            <string>SentinelOne Network Filter</string>
+            <key>FilterBrowsers</key>
+            <true/>
+            <key>FilterSockets</key>
+            <true/>
+            <key>Organization</key>
+            <string>SentinelOne</string>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Configuration profile to grant SentinelOne agent Full Disk Access, System Extension, and Network Content Filter approval for Jamf deployment</string>
+    <key>PayloadDisplayName</key>
+    <string>SentinelOne Permissions</string>
+    <key>PayloadIdentifier</key>
+    <string>com.sentinelone.permissions.profile</string>
+    <key>PayloadOrganization</key>
+    <string>RRCC</string> <!-- Replace with your company name -->
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>E5F6A1B2-C3D4-7890-E5F6-A1B2C3D47890</string> 
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
