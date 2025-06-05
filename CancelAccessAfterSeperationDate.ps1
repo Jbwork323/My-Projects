@@ -4,9 +4,9 @@
 # Finally, in the Resolve-Ticket section, replace the $comment variable with your own name
 
 # Jira connection parameters
-$jiraBaseUrl = "https://redrockscommunitycollege.atlassian.net"
-$JiraEmail = "joseph.work@rrcc.edu" # set to email that matches API key
-#$JiraEmail = "jonathan.allen@rrcc.edu"
+$jiraBaseUrl = "https://jirainstance.atlassian.net"
+$JiraEmail = "email@email.com" # set to email that matches API key
+#$JiraEmail = "email@email.com"
 
 
 function Add-SupervisorToJiraTicket {
