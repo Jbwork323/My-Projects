@@ -35,11 +35,11 @@ function Set-JiraAPIKeyEnvironmentVariable {
             
             [string]$CsvFilePath = "C:\Users\W02814770\Scripts\RRCCNewHires.csv", # replace with actual file path to CSV
             
-            [string]$JiraServerUrl = "https://redrockscommunitycollege.atlassian.net/", # our JIRA URL
+            [string]$JiraServerUrl = "https://jirainstance.atlassian.net/", # our JIRA URL
             
             [string]$ProjectKey = "ITS", # add to the ITS project
     
-            [string]$JiraUsername = "joseph.work@rrcc.edu" # replace with jira username that matches API key
+            [string]$JiraUsername = "email@email.com" # replace with jira username that matches API key
         )
     
         # Validate Jira API Key is set
